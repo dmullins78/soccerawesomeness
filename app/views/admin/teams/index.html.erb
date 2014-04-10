@@ -1,0 +1,4 @@
+  <%= link_to 'Add Team', new_admin_team_path, :class => 'btn btn-large btn-info btn-block' %>
+  <% @teams.each do |team| %> 
+    <%= link_to team.display_name, edit_admin_team_path(team), :class => 'btn btn-large btn-primary btn-block' %>
+  <% end %>

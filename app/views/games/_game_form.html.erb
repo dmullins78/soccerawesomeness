@@ -1,0 +1,51 @@
+<%= form_for(@game, :html => { :class => "form-horizontal", role: "form" }) do |f| %>
+  <div class="form-group">
+    <%= f.label :starts_at, class:"col-sm-4 control-label"%>
+    <div class="col-sm-8">
+      <%= text_field :game, :starts_at, :value => starts_at_label(@game), :disabled => !current_user.admin? %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :field, class:"col-sm-4 control-label"%>
+    <div class="col-sm-8">
+      <%= select("game", "field_id", Field.all.collect {|p| [ p.name, p.id ] }, {:include_blank => 'None'}, {:disabled => !current_user.admin?  }) %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :home_team_id, class:"col-sm-4 control-label"%>
+    <div class="col-sm-8">
+      <%= select("game", "home_team_id", Team.all.collect {|p| [ p.display_name, p.id ] }, {:include_blank => 'None'}, {:disabled => !current_user.admin?  }) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :home_team_score_id, class:"col-sm-4 control-label"%>
+    <div class="col-sm-8">
+      <%= number_field(:game, :home_team_score) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :visiting_team_id, class:"col-sm-4 control-label"%>
+    <div class="col-sm-8">
+      <%= select("game", "visiting_team_id", Team.all.collect {|p| [ p.display_name, p.id ] }, {:include_blank => 'None'}, {:disabled => !current_user.admin?  }) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :visiting_team_score_id, class:"col-sm-4 control-label"%>
+    <div class="col-sm-8">
+      <%= number_field(:game, :visiting_team_score) %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-4 col-sm-8">
+      <%= f.submit 'Save', :class => 'btn btn-primary' %>
+      <input type="button" class="btn" value="Cancel" onclick="location='/teams'"/> 
+    </div>
+  </div>
+
+<% end %>

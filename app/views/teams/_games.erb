@@ -1,0 +1,24 @@
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Kickoff</th>
+      <th>Home</th>
+      <th>Visitor</th>
+      <th>Field</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% games.each do |game| %>
+      <tr>
+        <td><%= start_time(game) %></td>
+        <td><%= game.home_team.display_name %> <%= home_winner(game) %> </td>
+        <td><%= game.visiting_team.display_name %> <%= visit_winner(game) %> </td>
+        <td><%= game.field.name %></td>
+        <td><%= link_to 'Edit', edit_game_path(game.id) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>

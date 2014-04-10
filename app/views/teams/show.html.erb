@@ -1,0 +1,6 @@
+<% if current_user && current_user.admin? then %>
+  <%= link_to 'Add Game', new_game_path, :class => 'btn btn-large btn-info btn-block' %>
+<% end %>
+<% @team.games.each do |game| %> 
+  <%= link_to "#{game_date(game)} vs #{opponent(game, @team)}", edit_game_path(game.id), :class => 'btn btn-large btn-primary btn-block' %>
+<% end %>

@@ -1,0 +1,38 @@
+Next Up
+  Add Game
+    Add validation to make sure all required fields are entered
+    Only enable on "Team" page
+    preselect team for "home team"
+  player import, do not delete everything
+
+Further Away
+  multi-league/season/year support
+  yellow cards
+  team aliases (import crap)
+  mass import teams (textarea)
+  jersey numbers
+  goals/assists/saves
+  mobile view
+
+Interesting Concepts
+  online player card
+
+Really Far Away
+  online registration (be invited to play?)
+  gravatar integration
+
+Tech Cool
+  tmux
+  chef
+  http://thechangelog.com/
+
+LeagueOne
+  Rosters, Teams, Reports
+  Price?
+  What features are important?
+
+SoccerAwesomeness
+  Rosters, Teams
+  API for league website integration
+  Scores/Schedule/Standings
+  Player Statistics

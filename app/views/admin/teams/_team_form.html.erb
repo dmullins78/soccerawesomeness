@@ -1,0 +1,42 @@
+<%= form_for [:admin, @team], :html => { class:"form-horizontal", role: "form" } do |f| %>
+  <div class="form-group">
+    <%= f.label :display_name, class:"col-sm-2 control-label"%>
+    <div class="col-sm-10">
+      <%= text_field :team, :display_name %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :short_name, class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= text_field :team, :short_name %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label "Division", class:"col-sm-2 control-label" %>
+    <div class="col-sm-10">
+      <%= select("team", "division_id", Division.all.collect {|p| [ p.name, p.id ] }) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.fields_for :users do |user_form| %>
+      <%= f.label "Captain", class:"col-sm-2 control-label" %>
+      <div class="col-sm-10">
+        <%= user_form.text_field :email, type:"email" %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit 'Save', :class => 'btn btn-primary' %>
+      <input type="button" class="btn" value="Cancel" onclick="location='/admin/teams'"/> 
+      <% if @team.persisted? %>
+        <%= link_to 'Delete', admin_team_url(@team), method: :delete, confirm: 'Are you sure?', class: 'btn btn-danger' %>
+      <% end %>
+    </div>
+  </div>
+
+<% end %>

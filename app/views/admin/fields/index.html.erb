@@ -1,0 +1,4 @@
+  <%= link_to 'Add Field', new_admin_field_path, :class => 'btn btn-large btn-info btn-block' %>
+  <% @fields.each do |field| %> 
+    <%= link_to field.name, edit_admin_field_path(field), :class => 'btn btn-large btn-primary btn-block' %>
+  <% end %>

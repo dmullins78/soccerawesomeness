@@ -1,0 +1,18 @@
+<%= form_for :file_upload, :html => { :multipart => true, :class => "form-horizontal" } do |f| %>
+  <fieldset>
+    <legend><%= import_type %> Upload</legend>
+
+      <div class="control-group">
+        <%= f.label :import_file, :class => "control-label" %>
+        <div class="controls">
+          <%= f.file_field :import_file -%>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <%= f.submit 'Save', :class => 'btn btn-primary' %>
+      </div>
+
+  </fieldset>
+<% end %>
+
